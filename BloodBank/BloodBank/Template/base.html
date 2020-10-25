@@ -1,0 +1,41 @@
+{% load bootstrap3 %}
+{% load staticfiles %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+{% load static %}
+<html>
+<html lang="en">
+<head>
+
+    <title>{% block title %}{% endblock %}</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" media="screen" type="text/css" href="{% static 'users/css/bootstrap.css' %}">
+<!--<style>
+    #bg{
+    background-size: 600px 600px;
+    background-repeat: no-repeat;
+    background-position: right;
+    background-attachment: fixed;
+}
+</style>-->
+<style>
+    .navbar{
+    background-image: none;
+}
+</style>
+{% block style %}{% endblock %}
+</head>
+<body style="background-color:aliceblue">
+
+<link rel="script" href="{% static 'users/js/jquery-3.1.1.min.js' %}">
+<link rel="script" href="{% static 'users/js/bootstrap.min.js' %}">
+<div class="page-container">
+    <img  src={% static 'users/images/blood_donationcover.jpeg' %} style="width:100%;height:370px">
+</div>
+<div class="container">
+  {% block body %}
+  {% endblock %}
+</div>
+</body>
+</html>
