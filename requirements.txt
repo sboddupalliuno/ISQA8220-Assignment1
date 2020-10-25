@@ -3,4 +3,3 @@ django-crispy-forms
 gunicorn
 django-heroku
 psycopg2==2.8.4
-bootstrap3

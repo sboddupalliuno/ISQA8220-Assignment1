@@ -42,7 +42,6 @@ INSTALLED_APPS = [
     'registration',
     'storage',
     'crispy_forms',
-    'bootstrap3',
     'django.contrib.postgres'
 ]
 
