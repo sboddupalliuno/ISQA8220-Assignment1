@@ -1,7 +1,11 @@
 from django.db import models
 from django.core.validators import MinValueValidator
 from django.contrib.auth.models import User
+from django.contrib.auth import get_user_model
+from django.shortcuts import redirect
+from storage.models import Request
 import datetime
+from django.urls import reverse
 
 
 class DonarDetail(models.Model):
@@ -21,7 +25,7 @@ class DonarDetail(models.Model):
                )
     first_name = models.CharField(max_length=20)
     last_name = models.CharField(max_length=20)
-    id_no = models.CharField(max_length=20, unique=True)
+    # id_no = models.CharField(max_length=20, unique=True)
     gender = models.CharField(max_length=20, choices=choice, default='Male')
     age = models.IntegerField(validators=[MinValueValidator(18)])
     blood_group = models.CharField(max_length=20, choices=choice1, default='O Positive')
@@ -32,12 +36,15 @@ class DonarDetail(models.Model):
     state = models.CharField(max_length=2, verbose_name="State")
     zipcode = models.IntegerField(validators=[MinValueValidator(5)])
     registered_by = models.CharField(max_length=20, default='Admin')
-    contact_number = models.IntegerField(validators=[MinValueValidator(10)])
+    contact_number = models.CharField(max_length=10, default=' ', null=True, blank=True)
     last_donated_date = models.DateField()
     number_month = models.IntegerField()
 
     def __str__(self):
-        return self.id_no
+        return self.first_name + ' ' + self.last_name
+
+    def get_absolute_url(self):
+        return reverse('donorlist')
 
     def refresh(self):
         now = datetime.datetime.now()
@@ -80,17 +87,19 @@ class Record(models.Model):
                ('AB Positive', 'AB Positive'),
                )
     blood_TYPE = models.CharField(max_length=20, choices=choice1, default='O Positive')
-    staff = models.CharField(max_length=20, default=' ')
-    id_no = models.CharField(max_length=20, default=' ')
-    donar_name = models.CharField(max_length=30)
+    user = models.ForeignKey(
+        get_user_model(),
+        on_delete=models.CASCADE,
+    )
+    donar = models.ForeignKey(DonarDetail, related_name='donar_id', on_delete=models.CASCADE)
     units = models.FloatField(default=0, validators=[MinValueValidator(0)])
     date = models.DateField()
 
     class Meta:
         ordering = ['-date']
 
-    def __str__(self):
-        return self.id_no
+    # def __str__(self):
+    #     return self.id_no
 
 
 class BloodStorage(models.Model):
@@ -111,3 +120,6 @@ class BloodStorage(models.Model):
 
     def __str__(self):
         return self.blood_group
+
+    def get_absolute_url(self):
+        return reverse('bloodstoragedetails')

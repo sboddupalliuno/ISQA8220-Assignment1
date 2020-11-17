@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="container">
+      <h2>Donation details</h2>
+        <a href="/sendpdfEmail/" class="btn btn-sm btn-info" type="button" style="background: goldenrod" >Pdf Email</a>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+              <th>Name</th>
+              <th>Blood type</th>
+              <th>unit</th>
+              <th>date</th>
+          </tr>
+        </thead>
+        <tbody>
+        {% for k in detail %}
+          <tr>
+            <td>{{ k.donar }}</td>
+            <td>{{ k.blood_TYPE }}</td>
+            <td>{{ k.units }}</td>
+            <td>{{ k.date }}</td>
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+    </div>
+{% endblock %}

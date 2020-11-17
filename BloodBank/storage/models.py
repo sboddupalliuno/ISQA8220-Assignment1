@@ -16,4 +16,5 @@ class Request(models.Model):
     blood_type = models.CharField(max_length=30,choices=choice1)
     units = models.IntegerField()
     reason = models.TextField(max_length=100)
+    email = models.EmailField(blank=True)
     contact_number = models.CharField(max_length=20)
