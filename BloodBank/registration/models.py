@@ -43,8 +43,10 @@ class DonarDetail(models.Model):
     def __str__(self):
         return self.first_name + ' ' + self.last_name
 
+
     def get_absolute_url(self):
         return reverse('donorlist')
+
 
     def refresh(self):
         now = datetime.datetime.now()
@@ -74,7 +76,6 @@ class DonarDetail(models.Model):
                         self.number_month = m2
         else:
             self.number_month = -1
-
 
 class Record(models.Model):
     choice1 = (('O Positive', 'O Positive'),

@@ -5,6 +5,7 @@ from .models import Record, DonarDetail
 class DateInput(forms.DateInput):
     input_type = 'date'
 
+
 class DonateForm(forms.ModelForm):
     choice1 = (('O Positive', 'O Positive'),
                ('O Negative', 'O Negative'),
@@ -17,12 +18,14 @@ class DonateForm(forms.ModelForm):
                )
     blood_group = forms.ChoiceField(choices=choice1, initial='O Positive')
 
+
     class Meta:
         model = Record
         fields = ('blood_group', 'donar', 'units', 'date')
         widgets = {
             'date': DateInput()
         }
+
 
 class DonarForm(forms.ModelForm):
     class Meta:

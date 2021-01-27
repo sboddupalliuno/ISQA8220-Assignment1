@@ -1,6 +1,5 @@
 from django.db import models
 
-
 class Request(models.Model):
     choice1 = (('O Positive', 'O Positive'),
                ('O Negative', 'O Negative'),

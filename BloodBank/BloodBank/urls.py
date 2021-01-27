@@ -1,5 +1,4 @@
 """BloodBank URL Configuration
-
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/2.2/topics/http/urls/
 Examples:
@@ -32,5 +31,4 @@ urlpatterns = [
     path('reset/done/', PasswordResetCompleteView.as_view(), name='reset_password_complete'),
     path('password_change/', ChangePasswordResetDoneView.as_view(), name='password_change'),
     path('change_password_done/', ChangePasswordResetDoneSuccessView.as_view(), name='change_password_done'),
-
 ]

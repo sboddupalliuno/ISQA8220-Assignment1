@@ -1,6 +1,7 @@
 from django.contrib import admin
 from .models import Request
 
+
 @admin.register(Request)
 class DonarDetailAdmin(admin.ModelAdmin):
     list_display = ['name','name_of_hospital', 'blood_type', 'units', 'contact_number']

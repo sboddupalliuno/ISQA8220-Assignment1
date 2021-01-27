@@ -10,7 +10,6 @@ class CustomUserCreationForm(UserCreationForm):
         model = UserProfile
         fields = ('username', 'email', 'department', 'employee_cell_phone')
 
-
 class CustomUserChangeForm(UserChangeForm):
 
     class Meta:

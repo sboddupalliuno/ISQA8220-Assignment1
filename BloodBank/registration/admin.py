@@ -1,7 +1,6 @@
 from django.contrib import admin
 from .models import DonarDetail, Record, BloodStorage
 
-
 @admin.register(DonarDetail)
 class DonarDetailAdmin(admin.ModelAdmin):
     list_display = ['first_name', 'last_name', 'gender', 'blood_group', 'contact_number', 'last_donated_date']

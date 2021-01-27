@@ -14,6 +14,7 @@
             <br>
             <a href="/donate" class="btn btn-sm btn-info" type="button" >Continue</a>
         </p>
+
     {% else %}
         <form id="donate_form" action="/donate/" method="post">
             {% csrf_token %}
