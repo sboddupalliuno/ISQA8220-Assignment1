@@ -13,7 +13,7 @@ class Request(models.Model):
                )
     name = models.CharField(max_length=30)
     name_of_hospital = models.CharField(max_length=100)
-    blood_type = models.CharField(max_length=30,choices=choice1)
+    blood_type = models.CharField(max_length=30,choices=choice1, default="O Positive")
     units = models.IntegerField()
     reason = models.TextField(max_length=100)
     email = models.EmailField(blank=True)

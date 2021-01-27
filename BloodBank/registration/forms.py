@@ -5,7 +5,6 @@ from .models import Record, DonarDetail
 class DateInput(forms.DateInput):
     input_type = 'date'
 
-
 class DonateForm(forms.ModelForm):
     choice1 = (('O Positive', 'O Positive'),
                ('O Negative', 'O Negative'),

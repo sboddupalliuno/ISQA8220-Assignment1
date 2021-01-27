@@ -28,11 +28,6 @@ def user_logout(request):
 def public_home(request):
     return redirect(reverse('home'))
 
-
-def storage(request):
-    detail1 = BloodStorage.objects.all()
-    return render(request, 'blood storage.html', {'detail': detail1})
-
 class PasswordResetView(auth_views.PasswordResetView):
     form_class = auth_forms.PasswordResetForm
     template_name = 'reset_password.html'

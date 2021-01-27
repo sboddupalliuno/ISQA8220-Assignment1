@@ -3,5 +3,3 @@ django-crispy-forms
 psycopg2==2.8.4
 django-bootstrap3
 djangorestframework
-pisa
-xhtml2pdf

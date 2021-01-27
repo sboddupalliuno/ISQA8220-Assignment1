@@ -35,25 +35,3 @@ class PasswordResetCompleteView(auth_views.PasswordResetCompleteView):
     template_name = 'reset_password_complete.html'
     #success_url = reverse_lazy('login.html')
 
-class BloodAvailableUpdateView(UpdateView):
-    model = BloodStorage
-    fields = ('blood_group', 'units')
-    template_name = 'bloodstorage_edit.html'
-
-class BloodAvailableDeleteView(DeleteView):
-    model = BloodStorage
-    template_name = 'bloodstorage_delete.html'
-    success_url = reverse_lazy('bloodstoragedetails')
-
-def blood_storage(request):
-    detail1 = BloodStorage.objects.all()
-    return render(request, 'blood.html', {'detail': detail1})
-
-class DonorUpdateView(UpdateView):
-    model = DonarDetail
-    fields = ('first_name', 'last_name' , 'blood_group', 'email', 'contact_number', 'street', 'city', 'state', 'zipcode', 'last_donated_date')
-    template_name = 'donordetails_edit.html'
-
-def donorlist(request):
-    detail1 = DonarDetail.objects.all()
-    return render(request, 'donordetails.html', {'detail': detail1})
