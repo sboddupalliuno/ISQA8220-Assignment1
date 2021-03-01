@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+{#    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"#}
+{#          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">#}
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+</head>
+<body>
+    {% block content %}
+    <div class="container">
+      <h2>Donor details</h2>
+        <a href="/sendpdfEmail/" class="btn btn-sm btn-info" type="button" style="background: goldenrod" >Pdf Email</a>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>Blood type</th>
+              <th>Email</th>
+              <th>PhoneNumber</th>
+              <th>LastDonatedDate</th>
+          </tr>
+        </thead>
+        <tbody>
+        {% for k in detail %}
+          <tr>
+            <td>{{ k.first_name }}</td>
+            <td>{{ k.last_name }}</td>
+            <td>{{ k.blood_group }}</td>
+            <td>{{ k.email }}</td>
+            <td>{{ k.contact_number }}</td>
+            <td>{{ k.last_donated_date }}</td>
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+    </div>
+{% endblock %}
+</body>

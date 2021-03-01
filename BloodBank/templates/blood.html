@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+  <h2>Available</h2>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Blood Group</th>
+        <th>Available (units)</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for k in detail %}
+      <tr>
+        <td>{{ k.blood_group }}</td>
+        <td>{{ k.units }}</td>
+          <td>
+              <a href="{% url 'bloodstorage_edit' k.pk %}">Edit</a> |
+              <a href="{% url 'bloodstorage_delete' k.pk %}">Delete</a>
+          </td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

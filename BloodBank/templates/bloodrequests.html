@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="container">
+      <h2>Blood Requests details</h2>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+              <th>Name</th>
+              <th>Hospital Name</th>
+              <th>Blood type</th>
+              <th>Units</th>
+              <th>Email</th>
+              <th>PhoneNumber</th>
+          </tr>
+        </thead>
+        <tbody>
+        {% for k in detail %}
+          <tr>
+            <td>{{ k.name }}</td>
+            <td>{{ k.name_of_hospital }}</td>
+            <td>{{ k.blood_type }}</td>
+            <td>{{ k.units }}</td>
+            <td>{{ k.email }}</td>
+            <td>{{ k.contact_number }}</td>
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+    </div>
+{% endblock %}

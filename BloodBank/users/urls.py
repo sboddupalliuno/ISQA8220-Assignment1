@@ -1,6 +1,6 @@
 from django.conf.urls import url
 from django.urls import path
-from .views import user_logout, PasswordResetConfirmView, SignUpView
+from .views import SignUpView, user_logout, PasswordResetConfirmView
 from django.contrib.auth.views import LoginView, LogoutView
 
 app_name = 'users'

@@ -16,8 +16,8 @@ from django.contrib import admin
 from django.urls import path, include
 from django.views.generic.base import TemplateView
 from django.conf.urls import url, include
-from .views import ChangePasswordResetDoneSuccessView, ChangePasswordResetDoneView,PasswordResetView, \
-    PasswordResetCompleteView, PasswordResetDoneView, PasswordResetConfirmView
+from .views import ChangePasswordResetDoneSuccessView, ChangePasswordResetDoneView,PasswordResetView, DonorUpdateView, donorlist, \
+    PasswordResetCompleteView, PasswordResetDoneView, PasswordResetConfirmView, BloodAvailableUpdateView, BloodAvailableDeleteView, blood_storage
 
 urlpatterns = [
     path('', TemplateView.as_view(template_name='home.html'), name='home'),
@@ -31,4 +31,9 @@ urlpatterns = [
     path('reset/done/', PasswordResetCompleteView.as_view(), name='reset_password_complete'),
     path('password_change/', ChangePasswordResetDoneView.as_view(), name='password_change'),
     path('change_password_done/', ChangePasswordResetDoneSuccessView.as_view(), name='change_password_done'),
+    path('<int:pk>/edit/',BloodAvailableUpdateView.as_view(), name='bloodstorage_edit'),
+    path('<int:pk>/delete/',BloodAvailableDeleteView.as_view(), name='bloodstorage_delete'),
+    url(r'^bloodstoragedetails/', blood_storage, name='bloodstoragedetails'),
+    path('<int:pk>/donoredit/', DonorUpdateView.as_view(), name='donor_edit'),
+    url(r'^donorlist/', donorlist, name='donorlist'),
 ]

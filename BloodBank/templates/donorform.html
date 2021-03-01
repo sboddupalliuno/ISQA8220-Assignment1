@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{#{% load crispy_forms_tags %}#}
+<html lang="en">
+{% load static %}
+<body style="background: none">
+{% block content %}
+
+    {% load bootstrap3 %}
+    {% if errors %}
+        {% for error in errors %}
+            <div class="panel panel-danger"><div class="panel-heading">{{ error }}</div></div>
+        {% endfor %}
+    {% endif %}
+    {% if submitted %}
+        <p class="success">
+            <h3>Donor created successfully.</h3>
+            <h3>Please click continue to make enter Donar Donation</h3>
+            <br>
+          <a href="/donate" class="btn btn-sm btn-info" type="button" >Continue</a>
+        </p>
+    {% else %}
+        <h3>Donor Registration</h3>
+        <div>
+            <form method="POST"  class="form-group">{% csrf_token %}
+                {% bootstrap_form form %}
+
+                <br>
+                <br>
+                <p style="text-align: center">
+                    <button type="submit" class="btn btn-sm btn-info" style="background: #1d809f">Create Account</button>
+                    <a href="/home" class="btn btn-sm btn-warning" type="button" style="background: goldenrod" >Cancel</a>
+                </p>
+            </form>
+        </div>
+
+    {% endif %}
+
+
+
+{% endblock content %}
+</body>
+</html>
